@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(traffics)}">
+        <h2>List of Traffics</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Route Id</th>
+                <th>Planet Origin</th>
+                <th>Planet Destination</th>
+                <th>Traffic Delay (Light Years)</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="traffic : ${traffics}">
+                <td th:text="${traffic.routeId}">Route Id</td>
+                <td th:text="${traffic.planetOrigin}">Planet Origin</td>
+                <td th:text="${traffic.planetDestination}">Planet Destination</td>
+                <td th:text="${traffic.trafficDelay}">Traffic Delay (Light Years)</td>
+                <td><a th:href="${'/api/traffic/edit/' + traffic.routeId}">Edit</a></td>
+                <td><a th:href="${'/api/traffic/delete/' + traffic.routeId}">Delete</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

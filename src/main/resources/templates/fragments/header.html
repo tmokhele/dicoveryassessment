@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Discovery Critical Path Assessment</title>
+</head>
+<body>
+
+<div class="container">
+    <div th:fragment="header">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" th:href="@{/api/route/home}">Home</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" th:href="@{/api/route/criticalpath}">Calculate Critical Path</a></li>
+                        <li><a href="#" th:href="@{/api/planet}">View Planets</a></li>
+                        <li><a href="#" th:href="@{/api/route}">View Routes</a></li>
+                        <li><a href="#" th:href="@{/api/traffic}">View Traffic</a></li>
+                        <li><a href="#" th:href="@{/api/route/planet}">Add Planet</a></li>
+                        <li><a href="#" th:href="@{/api/route/new}">Add Route</a></li>
+                        <li><a href="#" th:href="@{/api/traffic/new}">Add Traffic</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="jumbotron">
+            <div class="row text-center">
+                <div class="">
+                    <h2>Discovery Critical Path Assessment</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

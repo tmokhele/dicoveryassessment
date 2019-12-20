@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <h2>Add Traffic</h2>
+    <div>
+        <form class="form-horizontal" th:action="@{/api/traffic}" method="post">
+            <input type="hidden" th:field="*{traffic.routeId}"/>
+            <div class="form-group">
+                <p>Planet Origin</p>
+                <select id="paths" th:field="*{traffic.planetOrigin}" class="form-control input-lg">
+                    <option th:each="v : ${trafficList}"
+                            th:value="${v.planetOrigin}"
+                            th:text="${v.planetOrigin}">
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <p>Planet Destination</p>
+                <select id="paths1" th:field="*{traffic.planetDestination}" class="form-control input-lg">
+                    <option th:each="v : ${trafficList}"
+                            th:value="${v.planetDestination}"
+                            th:text="${v.planetDestination}">
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Traffic Delay(Light Years):</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{traffic.trafficDelay}"/>
+                </div>
+            </div>
+            <div class="form-horizontal">
+                <button type="submit" class="btn btn-success btn-block">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
